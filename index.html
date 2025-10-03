@@ -67,7 +67,14 @@
 <ul id="todo-list"></ul>
 
 <script>
-  
+  function loadTodos() {
+    const stored = localStorage.getItem('todos');
+    return stored ? JSON.parse(stored) : [];
+  }
+
+  function saveTodos(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
 
   const inputEl = document.getElementById('todo-input');
   const addBtn = document.getElementById('add-btn');
